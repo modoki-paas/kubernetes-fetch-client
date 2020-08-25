@@ -16,12 +16,15 @@ jobs:
     - name: Build Docker image
       run: |
         export CLIENT_ROOT=`pwd`
+        export GENERATED_DIR=$(mktemp -d)
         cd $(mktemp -d)
         git clone https://github.com/kubernetes-client/gen.git
         cd gen
         cp ${CLIENT_ROOT}/config/typescript-fetch.* ./openapi/
-        ./openapi/typescript-fetch.sh ${CLIENT_ROOT} ${CLIENT_ROOT}/config/settings.sh
+        ./openapi/typescript-fetch.sh ${GENERATED_DIR} ${CLIENT_ROOT}/config/settings.sh
+        cp -r ${GENERATED_DIR}/* ${CLIENT_ROOT}/
         cd ${CLIENT_ROOT}
+        ls -la
         git status
         cat package.json
     - name: Create Pull Request

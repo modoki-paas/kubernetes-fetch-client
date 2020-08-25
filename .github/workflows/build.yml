@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build Docker image
+    - name: Build
       run: |
         export CLIENT_ROOT=`pwd`
         export GENERATED_DIR=$(mktemp -d)

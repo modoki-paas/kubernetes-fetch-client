@@ -26,7 +26,7 @@
                             <configOptions>
                                 <sortParamsByRequiredFlag>true</sortParamsByRequiredFlag>
                                 <supportsES6>true</supportsES6>
-                                <npmName>kubernetes-client-typescript-frontend</npmName>
+                                <npmName>kubernetes-fetch-client</npmName>
                                 <npmVersion>${generator.client.version}</npmVersion>
                                 <modelPropertyNaming>original</modelPropertyNaming>
                             </configOptions>

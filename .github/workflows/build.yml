@@ -1,0 +1,23 @@
+name: Docker
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  operator:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: |
+        export CLIENT_ROOT=$(pwd)
+        cd $(mkdir -d)
+        git clone https://github.com/kubernetes-client/gen.git
+        cd gen
+        cp ${CLIENT_ROOT}/typescript-fetch.* ./openapi/
+        ./openapi/typescript-fetch.sh ${CLIENT_ROOT} ${CLIENT_ROOT}/config/settings.sh
+        cd ${CLIENT_ROOT}
+        git status
+        cat package.json

@@ -17,6 +17,7 @@ jobs:
       run: |
         export CLIENT_ROOT=`pwd`
         export GENERATED_DIR=$(mktemp -d)
+        npm set init.license "MIT"
         cd $(mktemp -d)
         git clone https://github.com/kubernetes-client/gen.git
         cd gen

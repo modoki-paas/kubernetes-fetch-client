@@ -14,7 +14,7 @@ jobs:
     - name: Build Docker image
       run: |
         export CLIENT_ROOT=$(pwd)
-        cd $(mkdir -d)
+        cd $(mktemp -d)
         git clone https://github.com/kubernetes-client/gen.git
         cd gen
         cp ${CLIENT_ROOT}/typescript-fetch.* ./openapi/

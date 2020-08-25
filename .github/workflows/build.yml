@@ -13,13 +13,11 @@ jobs:
 
     - name: Build Docker image
       run: |
-        export CLIENT_ROOT=$(pwd)
-        echo ${CLIENT_ROOT}
-        echo $(pwd)
+        export CLIENT_ROOT=`pwd`
         cd $(mktemp -d)
         git clone https://github.com/kubernetes-client/gen.git
         cd gen
-        cp ${CLIENT_ROOT}/typescript-fetch.* ./openapi/
+        cp ${CLIENT_ROOT}/config/typescript-fetch.* ./openapi/
         ./openapi/typescript-fetch.sh ${CLIENT_ROOT} ${CLIENT_ROOT}/config/settings.sh
         cd ${CLIENT_ROOT}
         git status

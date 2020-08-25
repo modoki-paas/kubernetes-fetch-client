@@ -1,7 +1,7 @@
 {
-  "name": "kubernetes-client-typescript-frontend",
+  "name": "kubernetes-fetch-client",
   "version": "0.0.0",
-  "description": "OpenAPI client for kubernetes-client-typescript-frontend",
+  "description": "OpenAPI client for kubernetes-fetch-client",
   "author": "OpenAPI-Generator",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",

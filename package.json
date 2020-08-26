@@ -1,7 +1,8 @@
 {
-  "name": "kubernetes-fetch-client",
-  "version": "0.0.0",
-  "description": "OpenAPI client for kubernetes-fetch-client",
+  "license": "Apache-2.0",
+  "name": "@modoki-paas/kubernetes-fetch-client",
+  "version": "0.0.1",
+  "description": "OpenAPI client for @modoki-paas/kubernetes-fetch-client",
   "author": "OpenAPI-Generator",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",

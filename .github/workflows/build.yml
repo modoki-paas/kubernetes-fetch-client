@@ -24,7 +24,7 @@ jobs:
         cp ${CLIENT_ROOT}/config/typescript-fetch.* ./openapi/
         ./openapi/typescript-fetch.sh ${GENERATED_DIR} ${CLIENT_ROOT}/config/settings.sh
         cat ${GENERATED_DIR}/package.json
-        jq -s '.[0] * .[1]' ${GENERATED_DIR}/package.json ${CLIENT_ROOT}/config/package.template.json > ${GENERATED_DIR}/package.json
+        jq -s '.[0] + .[1]' ${GENERATED_DIR}/package.json ${CLIENT_ROOT}/config/package.template.json > ${GENERATED_DIR}/package.json
         cat ${GENERATED_DIR}/package.json
         cp -r ${GENERATED_DIR}/* ${CLIENT_ROOT}/
         cd ${CLIENT_ROOT}

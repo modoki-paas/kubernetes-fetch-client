@@ -36,6 +36,7 @@ jobs:
         git status
         cat package.json
         npm i --only=dev typescript@4.0.2
+        npm run build
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3

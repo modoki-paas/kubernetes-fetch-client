@@ -38,7 +38,7 @@ export interface V1beta1PolicyRule {
      */
     resourceNames?: Array<string>;
     /**
-     * Resources is a list of resources this rule applies to.  '*' represents all resources in the specified apiGroups. '*/foo' represents the subresource 'foo' for all resources in the specified apiGroups.
+     * Resources is a list of resources this rule applies to.  '*' represents all resources in the specified apiGroups. '* /foo' represents the subresource 'foo' for all resources in the specified apiGroups.
      * @type {Array<string>}
      * @memberof V1beta1PolicyRule
      */

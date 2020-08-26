@@ -40,7 +40,7 @@ export interface V1RuleWithOperations {
     /**
      * Resources is a list of resources this rule applies to.
      * 
-     * For example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.
+     * For example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '* /scale' means all scale subresources. '* /*' means all resources and their subresources.
      * 
      * If wildcard is present, the validation rule will ensure resources do not overlap with each other.
      * 

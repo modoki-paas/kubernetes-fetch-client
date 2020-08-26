@@ -7,10 +7,10 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "./config/fix-comment.sh && tsc",
     "prepare": "npm run build"
   },
   "devDependencies": {
-    "typescript": "^2.4"
+    "typescript": "^4.0.2"
   }
 }

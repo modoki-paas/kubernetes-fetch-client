@@ -1,5 +1,4 @@
 {
-  "license": "Apache-2.0",
   "name": "@modoki-paas/kubernetes-fetch-client",
   "version": "0.0.1",
   "description": "OpenAPI client for @modoki-paas/kubernetes-fetch-client",
@@ -7,7 +6,7 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "./config/fix-comment.sh && tsc",
+    "build": "tsc",
     "prepare": "npm run build"
   },
   "devDependencies": {

@@ -29,12 +29,10 @@ jobs:
         cat ${GENERATED_DIR}/package.json
         export TMP=$(mktemp)
         jq -s '.[0] * .[1]' ${GENERATED_DIR}/package.json ${CLIENT_ROOT}/config/package.template.json > $TMP && cp $TMP ${GENERATED_DIR}/package.json
-        cat ${GENERATED_DIR}/package.json
+        jq -s '.[0] * .[1]' ${GENERATED_DIR}/tsconfig.json ${CLIENT_ROOT}/config/tsconfig.template.json > $TMP && cp $TMP ${GENERATED_DIR}/tsconfig.json
         cp -r ${GENERATED_DIR}/* ${CLIENT_ROOT}/
         cd ${CLIENT_ROOT}
-        ls -la
-        git status
-        cat package.json
+
         npm i --only=dev typescript@4.0.2
         npm run build
 

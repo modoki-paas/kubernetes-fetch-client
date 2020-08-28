@@ -6,7 +6,7 @@ export KUBERNETES_BRANCH="v1.18.0"
 
 # client version for packaging and releasing. It can
 # be different than SPEC_VERSION.
-export CLIENT_VERSION="0.0.1"
+export CLIENT_VERSION="0.0.2"
 
 # Name of the release package
 export PACKAGE_NAME="@modoki-paas/kubernetes-fetch-client"

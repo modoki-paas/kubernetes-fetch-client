@@ -46,6 +46,8 @@ popd > /dev/null
 source "${SCRIPT_ROOT}/openapi-generator/client-generator.sh"
 source "${SETTING_FILE}"
 
+USERNAME=modoki-paas
+REPOSITORY=kubernetes-openapi-generated
 OPENAPI_GENERATOR_COMMIT="${OPENAPI_GENERATOR_COMMIT:-v4.0.3}"; \
 CLIENT_LANGUAGE=typescript-fetch; \
 CLEANUP_DIRS=(api model); \

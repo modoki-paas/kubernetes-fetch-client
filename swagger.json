@@ -43637,14 +43637,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           {
@@ -43666,40 +43659,19 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "201": {
             "description": "Created",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "202": {
             "description": "Accepted",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "401": {
@@ -43842,14 +43814,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "401": {
@@ -43886,14 +43851,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           {
@@ -43915,27 +43873,13 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "201": {
             "description": "Created",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "401": {
@@ -44076,14 +44020,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "401": {
@@ -44155,14 +44092,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "401": {
@@ -44199,14 +44129,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           {
@@ -44228,27 +44151,13 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "201": {
             "description": "Created",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "401": {
@@ -44310,14 +44219,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "x-kubernetes-group-version-kind": [
-                {
-                  "group": "modoki.tsuzu.dev",
-                  "kind": "Application",
-                  "version": "v1alpha1"
-                }
-              ]
+              "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
             }
           },
           "401": {
@@ -76463,6 +76365,126 @@
         }
       ]
     },
+    "dev.tsuzu.modoki.v1alpha1.Application": {
+      "description": "Application is the Schema for the applications API",
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string"
+        },
+        "metadata": {
+          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+          "$ref": "#/definitions/v1.ObjectMeta"
+        },
+        "spec": {
+          "description": "ApplicationSpec defines the desired state of Application",
+          "type": "object",
+          "required": [
+            "domains",
+            "image"
+          ],
+          "properties": {
+            "args": {
+              "description": "Args is the arguments to the entrypoint",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "attributes": {
+              "description": "Attributes is parameters for the generator",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "command": {
+              "description": "Command is an entrypoint array",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "domains": {
+              "description": "Domains are requested domains for the ingress of the application",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "image": {
+              "description": "Image is the url for Docker registry",
+              "type": "string"
+            }
+          }
+        },
+        "status": {
+          "description": "ApplicationStatus defines the observed state of Application",
+          "type": "object",
+          "required": [
+            "domains",
+            "resources",
+            "status"
+          ],
+          "properties": {
+            "domains": {
+              "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file Domains are assigned domains for the application",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "message": {
+              "description": "Message is the detailed status or reason for the currnt status",
+              "type": "string"
+            },
+            "resources": {
+              "description": "Resources are the generated resources by modoki",
+              "type": "array",
+              "items": {
+                "description": "ApplicationResource is a resource in Kubernetes",
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "apiVersion": {
+                    "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+                    "type": "string"
+                  },
+                  "kind": {
+                    "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "status": {
+              "description": "Status is the current status of the application",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "modoki.tsuzu.dev",
+          "kind": "Application",
+          "version": "v1alpha1"
+        }
+      ]
+    },
     "v2beta2.HorizontalPodAutoscalerSpec": {
       "description": "HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.",
       "type": "object",
@@ -78309,14 +78331,7 @@
           "description": "List of applications. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md",
           "type": "array",
           "items": {
-            "type": "object",
-            "x-kubernetes-group-version-kind": [
-              {
-                "group": "modoki.tsuzu.dev",
-                "kind": "Application",
-                "version": "v1alpha1"
-              }
-            ]
+            "$ref": "#/definitions/dev.tsuzu.modoki.v1alpha1.Application"
           }
         },
         "kind": {

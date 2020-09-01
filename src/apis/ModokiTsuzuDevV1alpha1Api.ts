@@ -15,6 +15,9 @@
 
 import * as runtime from '../runtime';
 import {
+    DevTsuzuModokiV1alpha1Application,
+    DevTsuzuModokiV1alpha1ApplicationFromJSON,
+    DevTsuzuModokiV1alpha1ApplicationToJSON,
     DevTsuzuModokiV1alpha1ApplicationList,
     DevTsuzuModokiV1alpha1ApplicationListFromJSON,
     DevTsuzuModokiV1alpha1ApplicationListToJSON,
@@ -28,7 +31,7 @@ import {
 
 export interface CreateNamespacedApplicationRequest {
     namespace: string;
-    body: object;
+    body: DevTsuzuModokiV1alpha1Application;
     pretty?: string;
     dryRun?: string;
     fieldManager?: string;
@@ -116,7 +119,7 @@ export interface ReadNamespacedApplicationStatusRequest {
 export interface ReplaceNamespacedApplicationRequest {
     name: string;
     namespace: string;
-    body: object;
+    body: DevTsuzuModokiV1alpha1Application;
     pretty?: string;
     dryRun?: string;
     fieldManager?: string;
@@ -125,7 +128,7 @@ export interface ReplaceNamespacedApplicationRequest {
 export interface ReplaceNamespacedApplicationStatusRequest {
     name: string;
     namespace: string;
-    body: object;
+    body: DevTsuzuModokiV1alpha1Application;
     pretty?: string;
     dryRun?: string;
     fieldManager?: string;
@@ -139,7 +142,7 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     /**
      * create an Application
      */
-    async createNamespacedApplicationRaw(requestParameters: CreateNamespacedApplicationRequest): Promise<runtime.ApiResponse<object>> {
+    async createNamespacedApplicationRaw(requestParameters: CreateNamespacedApplicationRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1Application>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedApplication.');
         }
@@ -175,16 +178,16 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters.body as any,
+            body: DevTsuzuModokiV1alpha1ApplicationToJSON(requestParameters.body),
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1ApplicationFromJSON(jsonValue));
     }
 
     /**
      * create an Application
      */
-    async createNamespacedApplication(requestParameters: CreateNamespacedApplicationRequest): Promise<object> {
+    async createNamespacedApplication(requestParameters: CreateNamespacedApplicationRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.createNamespacedApplicationRaw(requestParameters);
         return await response.value();
     }
@@ -451,7 +454,7 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     /**
      * partially update the specified Application
      */
-    async patchNamespacedApplicationRaw(requestParameters: PatchNamespacedApplicationRequest): Promise<runtime.ApiResponse<object>> {
+    async patchNamespacedApplicationRaw(requestParameters: PatchNamespacedApplicationRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1Application>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedApplication.');
         }
@@ -494,13 +497,13 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
             body: requestParameters.body as any,
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1ApplicationFromJSON(jsonValue));
     }
 
     /**
      * partially update the specified Application
      */
-    async patchNamespacedApplication(requestParameters: PatchNamespacedApplicationRequest): Promise<object> {
+    async patchNamespacedApplication(requestParameters: PatchNamespacedApplicationRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.patchNamespacedApplicationRaw(requestParameters);
         return await response.value();
     }
@@ -508,7 +511,7 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     /**
      * partially update status of the specified Application
      */
-    async patchNamespacedApplicationStatusRaw(requestParameters: PatchNamespacedApplicationStatusRequest): Promise<runtime.ApiResponse<object>> {
+    async patchNamespacedApplicationStatusRaw(requestParameters: PatchNamespacedApplicationStatusRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1Application>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedApplicationStatus.');
         }
@@ -551,13 +554,13 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
             body: requestParameters.body as any,
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1ApplicationFromJSON(jsonValue));
     }
 
     /**
      * partially update status of the specified Application
      */
-    async patchNamespacedApplicationStatus(requestParameters: PatchNamespacedApplicationStatusRequest): Promise<object> {
+    async patchNamespacedApplicationStatus(requestParameters: PatchNamespacedApplicationStatusRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.patchNamespacedApplicationStatusRaw(requestParameters);
         return await response.value();
     }
@@ -565,7 +568,7 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     /**
      * read the specified Application
      */
-    async readNamespacedApplicationRaw(requestParameters: ReadNamespacedApplicationRequest): Promise<runtime.ApiResponse<object>> {
+    async readNamespacedApplicationRaw(requestParameters: ReadNamespacedApplicationRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1Application>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedApplication.');
         }
@@ -597,13 +600,13 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1ApplicationFromJSON(jsonValue));
     }
 
     /**
      * read the specified Application
      */
-    async readNamespacedApplication(requestParameters: ReadNamespacedApplicationRequest): Promise<object> {
+    async readNamespacedApplication(requestParameters: ReadNamespacedApplicationRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.readNamespacedApplicationRaw(requestParameters);
         return await response.value();
     }
@@ -611,7 +614,7 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     /**
      * read status of the specified Application
      */
-    async readNamespacedApplicationStatusRaw(requestParameters: ReadNamespacedApplicationStatusRequest): Promise<runtime.ApiResponse<object>> {
+    async readNamespacedApplicationStatusRaw(requestParameters: ReadNamespacedApplicationStatusRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1Application>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedApplicationStatus.');
         }
@@ -643,13 +646,13 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1ApplicationFromJSON(jsonValue));
     }
 
     /**
      * read status of the specified Application
      */
-    async readNamespacedApplicationStatus(requestParameters: ReadNamespacedApplicationStatusRequest): Promise<object> {
+    async readNamespacedApplicationStatus(requestParameters: ReadNamespacedApplicationStatusRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.readNamespacedApplicationStatusRaw(requestParameters);
         return await response.value();
     }
@@ -657,7 +660,7 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     /**
      * replace the specified Application
      */
-    async replaceNamespacedApplicationRaw(requestParameters: ReplaceNamespacedApplicationRequest): Promise<runtime.ApiResponse<object>> {
+    async replaceNamespacedApplicationRaw(requestParameters: ReplaceNamespacedApplicationRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1Application>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedApplication.');
         }
@@ -697,16 +700,16 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters.body as any,
+            body: DevTsuzuModokiV1alpha1ApplicationToJSON(requestParameters.body),
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1ApplicationFromJSON(jsonValue));
     }
 
     /**
      * replace the specified Application
      */
-    async replaceNamespacedApplication(requestParameters: ReplaceNamespacedApplicationRequest): Promise<object> {
+    async replaceNamespacedApplication(requestParameters: ReplaceNamespacedApplicationRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.replaceNamespacedApplicationRaw(requestParameters);
         return await response.value();
     }
@@ -714,7 +717,7 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     /**
      * replace status of the specified Application
      */
-    async replaceNamespacedApplicationStatusRaw(requestParameters: ReplaceNamespacedApplicationStatusRequest): Promise<runtime.ApiResponse<object>> {
+    async replaceNamespacedApplicationStatusRaw(requestParameters: ReplaceNamespacedApplicationStatusRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1Application>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedApplicationStatus.');
         }
@@ -754,16 +757,16 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters.body as any,
+            body: DevTsuzuModokiV1alpha1ApplicationToJSON(requestParameters.body),
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1ApplicationFromJSON(jsonValue));
     }
 
     /**
      * replace status of the specified Application
      */
-    async replaceNamespacedApplicationStatus(requestParameters: ReplaceNamespacedApplicationStatusRequest): Promise<object> {
+    async replaceNamespacedApplicationStatus(requestParameters: ReplaceNamespacedApplicationStatusRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.replaceNamespacedApplicationStatusRaw(requestParameters);
         return await response.value();
     }

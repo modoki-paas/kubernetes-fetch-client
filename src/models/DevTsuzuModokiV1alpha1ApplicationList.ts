@@ -14,6 +14,10 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    DevTsuzuModokiV1alpha1Application,
+    DevTsuzuModokiV1alpha1ApplicationFromJSON,
+    DevTsuzuModokiV1alpha1ApplicationFromJSONTyped,
+    DevTsuzuModokiV1alpha1ApplicationToJSON,
     DevTsuzuModokiV1alpha1ApplicationListMetadata,
     DevTsuzuModokiV1alpha1ApplicationListMetadataFromJSON,
     DevTsuzuModokiV1alpha1ApplicationListMetadataFromJSONTyped,
@@ -34,10 +38,10 @@ export interface DevTsuzuModokiV1alpha1ApplicationList {
     apiVersion?: string;
     /**
      * List of applications. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
-     * @type {Array<object>}
+     * @type {Array<DevTsuzuModokiV1alpha1Application>}
      * @memberof DevTsuzuModokiV1alpha1ApplicationList
      */
-    items: Array<object>;
+    items: Array<DevTsuzuModokiV1alpha1Application>;
     /**
      * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * @type {string}
@@ -63,7 +67,7 @@ export function DevTsuzuModokiV1alpha1ApplicationListFromJSONTyped(json: any, ig
     return {
         
         'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'items': json['items'],
+        'items': ((json['items'] as Array<any>).map(DevTsuzuModokiV1alpha1ApplicationFromJSON)),
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'metadata': !exists(json, 'metadata') ? undefined : DevTsuzuModokiV1alpha1ApplicationListMetadataFromJSON(json['metadata']),
     };
@@ -79,7 +83,7 @@ export function DevTsuzuModokiV1alpha1ApplicationListToJSON(value?: DevTsuzuModo
     return {
         
         'apiVersion': value.apiVersion,
-        'items': value.items,
+        'items': ((value.items as Array<any>).map(DevTsuzuModokiV1alpha1ApplicationToJSON)),
         'kind': value.kind,
         'metadata': DevTsuzuModokiV1alpha1ApplicationListMetadataToJSON(value.metadata),
     };

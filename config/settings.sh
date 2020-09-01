@@ -2,7 +2,7 @@
 export USERNAME=kubernetes
 
 # Kubernetes branch/tag to get the OpenAPI spec from.
-export KUBERNETES_BRANCH="v1.18.0"
+export KUBERNETES_BRANCH="master"
 
 # client version for packaging and releasing. It can
 # be different than SPEC_VERSION.

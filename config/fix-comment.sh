@@ -7,6 +7,7 @@ if [ "$(uname)" == 'Darwin' ]; then
 
     find ./src -type f | xargs sed -i '' "s/'\\*\\//'\\* \\//g"
     find ./src -type f | xargs sed -i '' "s/\"\\*\\//\"\\* \\//g"
+    find ./src -type f | xargs sed -i '' "s/GlobalFetch/WindowOrWorkerGlobalScope/g"
 
     sed -i '' "s/export \\* from '\\.\\/\\(.*\\)'/export {\\1} from '.\\/\\1'/g" ./src/apis/index.ts
 else
@@ -14,6 +15,7 @@ else
 
     find ./src -type f | xargs sed -i "s/'\\*\\//'\\* \\//g"
     find ./src -type f | xargs sed -i "s/\"\\*\\//\"\\* \\//g"
+    find ./src -type f | xargs sed -i "s/GlobalFetch/WindowOrWorkerGlobalScope/g"
 
     sed -i "s/export \\* from '\\.\\/\\(.*\\)'/export {\\1} from '.\\/\\1'/g" ./src/apis/index.ts
 fi

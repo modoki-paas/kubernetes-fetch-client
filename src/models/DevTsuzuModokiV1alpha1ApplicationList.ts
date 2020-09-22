@@ -18,10 +18,10 @@ import {
     DevTsuzuModokiV1alpha1ApplicationFromJSON,
     DevTsuzuModokiV1alpha1ApplicationFromJSONTyped,
     DevTsuzuModokiV1alpha1ApplicationToJSON,
-    DevTsuzuModokiV1alpha1ApplicationListMetadata,
-    DevTsuzuModokiV1alpha1ApplicationListMetadataFromJSON,
-    DevTsuzuModokiV1alpha1ApplicationListMetadataFromJSONTyped,
-    DevTsuzuModokiV1alpha1ApplicationListMetadataToJSON,
+    DevTsuzuModokiV1alpha1RemoteSyncListMetadata,
+    DevTsuzuModokiV1alpha1RemoteSyncListMetadataFromJSON,
+    DevTsuzuModokiV1alpha1RemoteSyncListMetadataFromJSONTyped,
+    DevTsuzuModokiV1alpha1RemoteSyncListMetadataToJSON,
 } from './';
 
 /**
@@ -50,10 +50,10 @@ export interface DevTsuzuModokiV1alpha1ApplicationList {
     kind?: string;
     /**
      * 
-     * @type {DevTsuzuModokiV1alpha1ApplicationListMetadata}
+     * @type {DevTsuzuModokiV1alpha1RemoteSyncListMetadata}
      * @memberof DevTsuzuModokiV1alpha1ApplicationList
      */
-    metadata?: DevTsuzuModokiV1alpha1ApplicationListMetadata;
+    metadata?: DevTsuzuModokiV1alpha1RemoteSyncListMetadata;
 }
 
 export function DevTsuzuModokiV1alpha1ApplicationListFromJSON(json: any): DevTsuzuModokiV1alpha1ApplicationList {
@@ -69,7 +69,7 @@ export function DevTsuzuModokiV1alpha1ApplicationListFromJSONTyped(json: any, ig
         'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
         'items': ((json['items'] as Array<any>).map(DevTsuzuModokiV1alpha1ApplicationFromJSON)),
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': !exists(json, 'metadata') ? undefined : DevTsuzuModokiV1alpha1ApplicationListMetadataFromJSON(json['metadata']),
+        'metadata': !exists(json, 'metadata') ? undefined : DevTsuzuModokiV1alpha1RemoteSyncListMetadataFromJSON(json['metadata']),
     };
 }
 
@@ -85,7 +85,7 @@ export function DevTsuzuModokiV1alpha1ApplicationListToJSON(value?: DevTsuzuModo
         'apiVersion': value.apiVersion,
         'items': ((value.items as Array<any>).map(DevTsuzuModokiV1alpha1ApplicationToJSON)),
         'kind': value.kind,
-        'metadata': DevTsuzuModokiV1alpha1ApplicationListMetadataToJSON(value.metadata),
+        'metadata': DevTsuzuModokiV1alpha1RemoteSyncListMetadataToJSON(value.metadata),
     };
 }
 

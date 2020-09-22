@@ -48,7 +48,19 @@ export interface DevTsuzuModokiV1alpha1ApplicationSpec {
      * @type {string}
      * @memberof DevTsuzuModokiV1alpha1ApplicationSpec
      */
-    image: string;
+    image?: string;
+    /**
+     * ImagePullSecret is the name of the ImagePullSecret to pull your image
+     * @type {string}
+     * @memberof DevTsuzuModokiV1alpha1ApplicationSpec
+     */
+    imagePullSecret?: string;
+    /**
+     * ServiceAccount is the name of the ServiceAccount to use to run this Application
+     * @type {string}
+     * @memberof DevTsuzuModokiV1alpha1ApplicationSpec
+     */
+    serviceAccount?: string;
 }
 
 export function DevTsuzuModokiV1alpha1ApplicationSpecFromJSON(json: any): DevTsuzuModokiV1alpha1ApplicationSpec {
@@ -65,7 +77,9 @@ export function DevTsuzuModokiV1alpha1ApplicationSpecFromJSONTyped(json: any, ig
         'attributes': !exists(json, 'attributes') ? undefined : json['attributes'],
         'command': !exists(json, 'command') ? undefined : json['command'],
         'domains': json['domains'],
-        'image': json['image'],
+        'image': !exists(json, 'image') ? undefined : json['image'],
+        'imagePullSecret': !exists(json, 'imagePullSecret') ? undefined : json['imagePullSecret'],
+        'serviceAccount': !exists(json, 'serviceAccount') ? undefined : json['serviceAccount'],
     };
 }
 
@@ -83,6 +97,8 @@ export function DevTsuzuModokiV1alpha1ApplicationSpecToJSON(value?: DevTsuzuModo
         'command': value.command,
         'domains': value.domains,
         'image': value.image,
+        'imagePullSecret': value.imagePullSecret,
+        'serviceAccount': value.serviceAccount,
     };
 }
 

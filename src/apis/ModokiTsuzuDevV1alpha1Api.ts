@@ -15,12 +15,24 @@
 
 import * as runtime from '../runtime';
 import {
+    DevTsuzuModokiV1alpha1AppPipeline,
+    DevTsuzuModokiV1alpha1AppPipelineFromJSON,
+    DevTsuzuModokiV1alpha1AppPipelineToJSON,
+    DevTsuzuModokiV1alpha1AppPipelineList,
+    DevTsuzuModokiV1alpha1AppPipelineListFromJSON,
+    DevTsuzuModokiV1alpha1AppPipelineListToJSON,
     DevTsuzuModokiV1alpha1Application,
     DevTsuzuModokiV1alpha1ApplicationFromJSON,
     DevTsuzuModokiV1alpha1ApplicationToJSON,
     DevTsuzuModokiV1alpha1ApplicationList,
     DevTsuzuModokiV1alpha1ApplicationListFromJSON,
     DevTsuzuModokiV1alpha1ApplicationListToJSON,
+    DevTsuzuModokiV1alpha1RemoteSync,
+    DevTsuzuModokiV1alpha1RemoteSyncFromJSON,
+    DevTsuzuModokiV1alpha1RemoteSyncToJSON,
+    DevTsuzuModokiV1alpha1RemoteSyncList,
+    DevTsuzuModokiV1alpha1RemoteSyncListFromJSON,
+    DevTsuzuModokiV1alpha1RemoteSyncListToJSON,
     V1DeleteOptions,
     V1DeleteOptionsFromJSON,
     V1DeleteOptionsToJSON,
@@ -29,12 +41,39 @@ import {
     V1StatusToJSON,
 } from '../models';
 
+export interface CreateNamespacedAppPipelineRequest {
+    namespace: string;
+    body: DevTsuzuModokiV1alpha1AppPipeline;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
+}
+
 export interface CreateNamespacedApplicationRequest {
     namespace: string;
     body: DevTsuzuModokiV1alpha1Application;
     pretty?: string;
     dryRun?: string;
     fieldManager?: string;
+}
+
+export interface CreateNamespacedRemoteSyncRequest {
+    namespace: string;
+    body: DevTsuzuModokiV1alpha1RemoteSync;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
+}
+
+export interface DeleteCollectionNamespacedAppPipelineRequest {
+    namespace: string;
+    pretty?: string;
+    _continue?: string;
+    fieldSelector?: string;
+    labelSelector?: string;
+    limit?: number;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
 }
 
 export interface DeleteCollectionNamespacedApplicationRequest {
@@ -48,6 +87,28 @@ export interface DeleteCollectionNamespacedApplicationRequest {
     timeoutSeconds?: number;
 }
 
+export interface DeleteCollectionNamespacedRemoteSyncRequest {
+    namespace: string;
+    pretty?: string;
+    _continue?: string;
+    fieldSelector?: string;
+    labelSelector?: string;
+    limit?: number;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+}
+
+export interface DeleteNamespacedAppPipelineRequest {
+    name: string;
+    namespace: string;
+    pretty?: string;
+    dryRun?: string;
+    gracePeriodSeconds?: number;
+    orphanDependents?: boolean;
+    propagationPolicy?: string;
+    body?: V1DeleteOptions;
+}
+
 export interface DeleteNamespacedApplicationRequest {
     name: string;
     namespace: string;
@@ -59,6 +120,29 @@ export interface DeleteNamespacedApplicationRequest {
     body?: V1DeleteOptions;
 }
 
+export interface DeleteNamespacedRemoteSyncRequest {
+    name: string;
+    namespace: string;
+    pretty?: string;
+    dryRun?: string;
+    gracePeriodSeconds?: number;
+    orphanDependents?: boolean;
+    propagationPolicy?: string;
+    body?: V1DeleteOptions;
+}
+
+export interface ListAppPipelineForAllNamespacesRequest {
+    allowWatchBookmarks?: boolean;
+    _continue?: string;
+    fieldSelector?: string;
+    labelSelector?: string;
+    limit?: number;
+    pretty?: string;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+    watch?: boolean;
+}
+
 export interface ListApplicationForAllNamespacesRequest {
     allowWatchBookmarks?: boolean;
     _continue?: string;
@@ -66,6 +150,19 @@ export interface ListApplicationForAllNamespacesRequest {
     labelSelector?: string;
     limit?: number;
     pretty?: string;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+    watch?: boolean;
+}
+
+export interface ListNamespacedAppPipelineRequest {
+    namespace: string;
+    pretty?: string;
+    allowWatchBookmarks?: boolean;
+    _continue?: string;
+    fieldSelector?: string;
+    labelSelector?: string;
+    limit?: number;
     resourceVersion?: string;
     timeoutSeconds?: number;
     watch?: boolean;
@@ -82,6 +179,49 @@ export interface ListNamespacedApplicationRequest {
     resourceVersion?: string;
     timeoutSeconds?: number;
     watch?: boolean;
+}
+
+export interface ListNamespacedRemoteSyncRequest {
+    namespace: string;
+    pretty?: string;
+    allowWatchBookmarks?: boolean;
+    _continue?: string;
+    fieldSelector?: string;
+    labelSelector?: string;
+    limit?: number;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+    watch?: boolean;
+}
+
+export interface ListRemoteSyncForAllNamespacesRequest {
+    allowWatchBookmarks?: boolean;
+    _continue?: string;
+    fieldSelector?: string;
+    labelSelector?: string;
+    limit?: number;
+    pretty?: string;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+    watch?: boolean;
+}
+
+export interface PatchNamespacedAppPipelineRequest {
+    name: string;
+    namespace: string;
+    body: object;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
+}
+
+export interface PatchNamespacedAppPipelineStatusRequest {
+    name: string;
+    namespace: string;
+    body: object;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
 }
 
 export interface PatchNamespacedApplicationRequest {
@@ -102,6 +242,38 @@ export interface PatchNamespacedApplicationStatusRequest {
     fieldManager?: string;
 }
 
+export interface PatchNamespacedRemoteSyncRequest {
+    name: string;
+    namespace: string;
+    body: object;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
+}
+
+export interface PatchNamespacedRemoteSyncStatusRequest {
+    name: string;
+    namespace: string;
+    body: object;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
+}
+
+export interface ReadNamespacedAppPipelineRequest {
+    name: string;
+    namespace: string;
+    pretty?: string;
+    resourceVersion?: string;
+}
+
+export interface ReadNamespacedAppPipelineStatusRequest {
+    name: string;
+    namespace: string;
+    pretty?: string;
+    resourceVersion?: string;
+}
+
 export interface ReadNamespacedApplicationRequest {
     name: string;
     namespace: string;
@@ -114,6 +286,38 @@ export interface ReadNamespacedApplicationStatusRequest {
     namespace: string;
     pretty?: string;
     resourceVersion?: string;
+}
+
+export interface ReadNamespacedRemoteSyncRequest {
+    name: string;
+    namespace: string;
+    pretty?: string;
+    resourceVersion?: string;
+}
+
+export interface ReadNamespacedRemoteSyncStatusRequest {
+    name: string;
+    namespace: string;
+    pretty?: string;
+    resourceVersion?: string;
+}
+
+export interface ReplaceNamespacedAppPipelineRequest {
+    name: string;
+    namespace: string;
+    body: DevTsuzuModokiV1alpha1AppPipeline;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
+}
+
+export interface ReplaceNamespacedAppPipelineStatusRequest {
+    name: string;
+    namespace: string;
+    body: DevTsuzuModokiV1alpha1AppPipeline;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
 }
 
 export interface ReplaceNamespacedApplicationRequest {
@@ -134,10 +338,81 @@ export interface ReplaceNamespacedApplicationStatusRequest {
     fieldManager?: string;
 }
 
+export interface ReplaceNamespacedRemoteSyncRequest {
+    name: string;
+    namespace: string;
+    body: DevTsuzuModokiV1alpha1RemoteSync;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
+}
+
+export interface ReplaceNamespacedRemoteSyncStatusRequest {
+    name: string;
+    namespace: string;
+    body: DevTsuzuModokiV1alpha1RemoteSync;
+    pretty?: string;
+    dryRun?: string;
+    fieldManager?: string;
+}
+
 /**
  * 
  */
 export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
+
+    /**
+     * create an AppPipeline
+     */
+    async createNamespacedAppPipelineRaw(requestParameters: CreateNamespacedAppPipelineRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1AppPipeline>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedAppPipeline.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createNamespacedAppPipeline.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DevTsuzuModokiV1alpha1AppPipelineToJSON(requestParameters.body),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1AppPipelineFromJSON(jsonValue));
+    }
+
+    /**
+     * create an AppPipeline
+     */
+    async createNamespacedAppPipeline(requestParameters: CreateNamespacedAppPipelineRequest): Promise<DevTsuzuModokiV1alpha1AppPipeline> {
+        const response = await this.createNamespacedAppPipelineRaw(requestParameters);
+        return await response.value();
+    }
 
     /**
      * create an Application
@@ -189,6 +464,121 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
      */
     async createNamespacedApplication(requestParameters: CreateNamespacedApplicationRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.createNamespacedApplicationRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * create a RemoteSync
+     */
+    async createNamespacedRemoteSyncRaw(requestParameters: CreateNamespacedRemoteSyncRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1RemoteSync>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedRemoteSync.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createNamespacedRemoteSync.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DevTsuzuModokiV1alpha1RemoteSyncToJSON(requestParameters.body),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1RemoteSyncFromJSON(jsonValue));
+    }
+
+    /**
+     * create a RemoteSync
+     */
+    async createNamespacedRemoteSync(requestParameters: CreateNamespacedRemoteSyncRequest): Promise<DevTsuzuModokiV1alpha1RemoteSync> {
+        const response = await this.createNamespacedRemoteSyncRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * delete collection of AppPipeline
+     */
+    async deleteCollectionNamespacedAppPipelineRaw(requestParameters: DeleteCollectionNamespacedAppPipelineRequest): Promise<runtime.ApiResponse<V1Status>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteCollectionNamespacedAppPipeline.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+    }
+
+    /**
+     * delete collection of AppPipeline
+     */
+    async deleteCollectionNamespacedAppPipeline(requestParameters: DeleteCollectionNamespacedAppPipelineRequest): Promise<V1Status> {
+        const response = await this.deleteCollectionNamespacedAppPipelineRaw(requestParameters);
         return await response.value();
     }
 
@@ -255,6 +645,129 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     }
 
     /**
+     * delete collection of RemoteSync
+     */
+    async deleteCollectionNamespacedRemoteSyncRaw(requestParameters: DeleteCollectionNamespacedRemoteSyncRequest): Promise<runtime.ApiResponse<V1Status>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteCollectionNamespacedRemoteSync.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+    }
+
+    /**
+     * delete collection of RemoteSync
+     */
+    async deleteCollectionNamespacedRemoteSync(requestParameters: DeleteCollectionNamespacedRemoteSyncRequest): Promise<V1Status> {
+        const response = await this.deleteCollectionNamespacedRemoteSyncRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * delete an AppPipeline
+     */
+    async deleteNamespacedAppPipelineRaw(requestParameters: DeleteNamespacedAppPipelineRequest): Promise<runtime.ApiResponse<V1Status>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedAppPipeline.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedAppPipeline.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.gracePeriodSeconds !== undefined) {
+            queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+        }
+
+        if (requestParameters.orphanDependents !== undefined) {
+            queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+        }
+
+        if (requestParameters.propagationPolicy !== undefined) {
+            queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1DeleteOptionsToJSON(requestParameters.body),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+    }
+
+    /**
+     * delete an AppPipeline
+     */
+    async deleteNamespacedAppPipeline(requestParameters: DeleteNamespacedAppPipelineRequest): Promise<V1Status> {
+        const response = await this.deleteNamespacedAppPipelineRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
      * delete an Application
      */
     async deleteNamespacedApplicationRaw(requestParameters: DeleteNamespacedApplicationRequest): Promise<runtime.ApiResponse<V1Status>> {
@@ -312,6 +825,133 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
      */
     async deleteNamespacedApplication(requestParameters: DeleteNamespacedApplicationRequest): Promise<V1Status> {
         const response = await this.deleteNamespacedApplicationRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * delete a RemoteSync
+     */
+    async deleteNamespacedRemoteSyncRaw(requestParameters: DeleteNamespacedRemoteSyncRequest): Promise<runtime.ApiResponse<V1Status>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedRemoteSync.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedRemoteSync.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.gracePeriodSeconds !== undefined) {
+            queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+        }
+
+        if (requestParameters.orphanDependents !== undefined) {
+            queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+        }
+
+        if (requestParameters.propagationPolicy !== undefined) {
+            queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1DeleteOptionsToJSON(requestParameters.body),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+    }
+
+    /**
+     * delete a RemoteSync
+     */
+    async deleteNamespacedRemoteSync(requestParameters: DeleteNamespacedRemoteSyncRequest): Promise<V1Status> {
+        const response = await this.deleteNamespacedRemoteSyncRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * list objects of kind AppPipeline
+     */
+    async listAppPipelineForAllNamespacesRaw(requestParameters: ListAppPipelineForAllNamespacesRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1AppPipelineList>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.allowWatchBookmarks !== undefined) {
+            queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+        }
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        if (requestParameters.watch !== undefined) {
+            queryParameters['watch'] = requestParameters.watch;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/apppipelines`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1AppPipelineListFromJSON(jsonValue));
+    }
+
+    /**
+     * list objects of kind AppPipeline
+     */
+    async listAppPipelineForAllNamespaces(requestParameters: ListAppPipelineForAllNamespacesRequest): Promise<DevTsuzuModokiV1alpha1AppPipelineList> {
+        const response = await this.listAppPipelineForAllNamespacesRaw(requestParameters);
         return await response.value();
     }
 
@@ -382,6 +1022,76 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     }
 
     /**
+     * list objects of kind AppPipeline
+     */
+    async listNamespacedAppPipelineRaw(requestParameters: ListNamespacedAppPipelineRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1AppPipelineList>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedAppPipeline.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.allowWatchBookmarks !== undefined) {
+            queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+        }
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        if (requestParameters.watch !== undefined) {
+            queryParameters['watch'] = requestParameters.watch;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1AppPipelineListFromJSON(jsonValue));
+    }
+
+    /**
+     * list objects of kind AppPipeline
+     */
+    async listNamespacedAppPipeline(requestParameters: ListNamespacedAppPipelineRequest): Promise<DevTsuzuModokiV1alpha1AppPipelineList> {
+        const response = await this.listNamespacedAppPipelineRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
      * list objects of kind Application
      */
     async listNamespacedApplicationRaw(requestParameters: ListNamespacedApplicationRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1ApplicationList>> {
@@ -448,6 +1158,256 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
      */
     async listNamespacedApplication(requestParameters: ListNamespacedApplicationRequest): Promise<DevTsuzuModokiV1alpha1ApplicationList> {
         const response = await this.listNamespacedApplicationRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * list objects of kind RemoteSync
+     */
+    async listNamespacedRemoteSyncRaw(requestParameters: ListNamespacedRemoteSyncRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1RemoteSyncList>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedRemoteSync.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.allowWatchBookmarks !== undefined) {
+            queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+        }
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        if (requestParameters.watch !== undefined) {
+            queryParameters['watch'] = requestParameters.watch;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1RemoteSyncListFromJSON(jsonValue));
+    }
+
+    /**
+     * list objects of kind RemoteSync
+     */
+    async listNamespacedRemoteSync(requestParameters: ListNamespacedRemoteSyncRequest): Promise<DevTsuzuModokiV1alpha1RemoteSyncList> {
+        const response = await this.listNamespacedRemoteSyncRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * list objects of kind RemoteSync
+     */
+    async listRemoteSyncForAllNamespacesRaw(requestParameters: ListRemoteSyncForAllNamespacesRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1RemoteSyncList>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.allowWatchBookmarks !== undefined) {
+            queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+        }
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        if (requestParameters.watch !== undefined) {
+            queryParameters['watch'] = requestParameters.watch;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/remotesyncs`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1RemoteSyncListFromJSON(jsonValue));
+    }
+
+    /**
+     * list objects of kind RemoteSync
+     */
+    async listRemoteSyncForAllNamespaces(requestParameters: ListRemoteSyncForAllNamespacesRequest): Promise<DevTsuzuModokiV1alpha1RemoteSyncList> {
+        const response = await this.listRemoteSyncForAllNamespacesRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * partially update the specified AppPipeline
+     */
+    async patchNamespacedAppPipelineRaw(requestParameters: PatchNamespacedAppPipelineRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1AppPipeline>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedAppPipeline.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedAppPipeline.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling patchNamespacedAppPipeline.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json-patch+json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.body as any,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1AppPipelineFromJSON(jsonValue));
+    }
+
+    /**
+     * partially update the specified AppPipeline
+     */
+    async patchNamespacedAppPipeline(requestParameters: PatchNamespacedAppPipelineRequest): Promise<DevTsuzuModokiV1alpha1AppPipeline> {
+        const response = await this.patchNamespacedAppPipelineRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * partially update status of the specified AppPipeline
+     */
+    async patchNamespacedAppPipelineStatusRaw(requestParameters: PatchNamespacedAppPipelineStatusRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1AppPipeline>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedAppPipelineStatus.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedAppPipelineStatus.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling patchNamespacedAppPipelineStatus.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json-patch+json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines/{name}/status`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.body as any,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1AppPipelineFromJSON(jsonValue));
+    }
+
+    /**
+     * partially update status of the specified AppPipeline
+     */
+    async patchNamespacedAppPipelineStatus(requestParameters: PatchNamespacedAppPipelineStatusRequest): Promise<DevTsuzuModokiV1alpha1AppPipeline> {
+        const response = await this.patchNamespacedAppPipelineStatusRaw(requestParameters);
         return await response.value();
     }
 
@@ -566,6 +1526,212 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
     }
 
     /**
+     * partially update the specified RemoteSync
+     */
+    async patchNamespacedRemoteSyncRaw(requestParameters: PatchNamespacedRemoteSyncRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1RemoteSync>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedRemoteSync.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedRemoteSync.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling patchNamespacedRemoteSync.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json-patch+json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.body as any,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1RemoteSyncFromJSON(jsonValue));
+    }
+
+    /**
+     * partially update the specified RemoteSync
+     */
+    async patchNamespacedRemoteSync(requestParameters: PatchNamespacedRemoteSyncRequest): Promise<DevTsuzuModokiV1alpha1RemoteSync> {
+        const response = await this.patchNamespacedRemoteSyncRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * partially update status of the specified RemoteSync
+     */
+    async patchNamespacedRemoteSyncStatusRaw(requestParameters: PatchNamespacedRemoteSyncStatusRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1RemoteSync>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedRemoteSyncStatus.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedRemoteSyncStatus.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling patchNamespacedRemoteSyncStatus.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json-patch+json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs/{name}/status`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.body as any,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1RemoteSyncFromJSON(jsonValue));
+    }
+
+    /**
+     * partially update status of the specified RemoteSync
+     */
+    async patchNamespacedRemoteSyncStatus(requestParameters: PatchNamespacedRemoteSyncStatusRequest): Promise<DevTsuzuModokiV1alpha1RemoteSync> {
+        const response = await this.patchNamespacedRemoteSyncStatusRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * read the specified AppPipeline
+     */
+    async readNamespacedAppPipelineRaw(requestParameters: ReadNamespacedAppPipelineRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1AppPipeline>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedAppPipeline.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling readNamespacedAppPipeline.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1AppPipelineFromJSON(jsonValue));
+    }
+
+    /**
+     * read the specified AppPipeline
+     */
+    async readNamespacedAppPipeline(requestParameters: ReadNamespacedAppPipelineRequest): Promise<DevTsuzuModokiV1alpha1AppPipeline> {
+        const response = await this.readNamespacedAppPipelineRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * read status of the specified AppPipeline
+     */
+    async readNamespacedAppPipelineStatusRaw(requestParameters: ReadNamespacedAppPipelineStatusRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1AppPipeline>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedAppPipelineStatus.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling readNamespacedAppPipelineStatus.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines/{name}/status`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1AppPipelineFromJSON(jsonValue));
+    }
+
+    /**
+     * read status of the specified AppPipeline
+     */
+    async readNamespacedAppPipelineStatus(requestParameters: ReadNamespacedAppPipelineStatusRequest): Promise<DevTsuzuModokiV1alpha1AppPipeline> {
+        const response = await this.readNamespacedAppPipelineStatusRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
      * read the specified Application
      */
     async readNamespacedApplicationRaw(requestParameters: ReadNamespacedApplicationRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1Application>> {
@@ -654,6 +1820,212 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
      */
     async readNamespacedApplicationStatus(requestParameters: ReadNamespacedApplicationStatusRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.readNamespacedApplicationStatusRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * read the specified RemoteSync
+     */
+    async readNamespacedRemoteSyncRaw(requestParameters: ReadNamespacedRemoteSyncRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1RemoteSync>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedRemoteSync.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling readNamespacedRemoteSync.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1RemoteSyncFromJSON(jsonValue));
+    }
+
+    /**
+     * read the specified RemoteSync
+     */
+    async readNamespacedRemoteSync(requestParameters: ReadNamespacedRemoteSyncRequest): Promise<DevTsuzuModokiV1alpha1RemoteSync> {
+        const response = await this.readNamespacedRemoteSyncRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * read status of the specified RemoteSync
+     */
+    async readNamespacedRemoteSyncStatusRaw(requestParameters: ReadNamespacedRemoteSyncStatusRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1RemoteSync>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedRemoteSyncStatus.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling readNamespacedRemoteSyncStatus.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs/{name}/status`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1RemoteSyncFromJSON(jsonValue));
+    }
+
+    /**
+     * read status of the specified RemoteSync
+     */
+    async readNamespacedRemoteSyncStatus(requestParameters: ReadNamespacedRemoteSyncStatusRequest): Promise<DevTsuzuModokiV1alpha1RemoteSync> {
+        const response = await this.readNamespacedRemoteSyncStatusRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * replace the specified AppPipeline
+     */
+    async replaceNamespacedAppPipelineRaw(requestParameters: ReplaceNamespacedAppPipelineRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1AppPipeline>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedAppPipeline.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedAppPipeline.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling replaceNamespacedAppPipeline.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DevTsuzuModokiV1alpha1AppPipelineToJSON(requestParameters.body),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1AppPipelineFromJSON(jsonValue));
+    }
+
+    /**
+     * replace the specified AppPipeline
+     */
+    async replaceNamespacedAppPipeline(requestParameters: ReplaceNamespacedAppPipelineRequest): Promise<DevTsuzuModokiV1alpha1AppPipeline> {
+        const response = await this.replaceNamespacedAppPipelineRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * replace status of the specified AppPipeline
+     */
+    async replaceNamespacedAppPipelineStatusRaw(requestParameters: ReplaceNamespacedAppPipelineStatusRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1AppPipeline>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedAppPipelineStatus.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedAppPipelineStatus.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling replaceNamespacedAppPipelineStatus.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/apppipelines/{name}/status`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DevTsuzuModokiV1alpha1AppPipelineToJSON(requestParameters.body),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1AppPipelineFromJSON(jsonValue));
+    }
+
+    /**
+     * replace status of the specified AppPipeline
+     */
+    async replaceNamespacedAppPipelineStatus(requestParameters: ReplaceNamespacedAppPipelineStatusRequest): Promise<DevTsuzuModokiV1alpha1AppPipeline> {
+        const response = await this.replaceNamespacedAppPipelineStatusRaw(requestParameters);
         return await response.value();
     }
 
@@ -768,6 +2140,120 @@ export class ModokiTsuzuDevV1alpha1Api extends runtime.BaseAPI {
      */
     async replaceNamespacedApplicationStatus(requestParameters: ReplaceNamespacedApplicationStatusRequest): Promise<DevTsuzuModokiV1alpha1Application> {
         const response = await this.replaceNamespacedApplicationStatusRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * replace the specified RemoteSync
+     */
+    async replaceNamespacedRemoteSyncRaw(requestParameters: ReplaceNamespacedRemoteSyncRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1RemoteSync>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedRemoteSync.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedRemoteSync.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling replaceNamespacedRemoteSync.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DevTsuzuModokiV1alpha1RemoteSyncToJSON(requestParameters.body),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1RemoteSyncFromJSON(jsonValue));
+    }
+
+    /**
+     * replace the specified RemoteSync
+     */
+    async replaceNamespacedRemoteSync(requestParameters: ReplaceNamespacedRemoteSyncRequest): Promise<DevTsuzuModokiV1alpha1RemoteSync> {
+        const response = await this.replaceNamespacedRemoteSyncRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * replace status of the specified RemoteSync
+     */
+    async replaceNamespacedRemoteSyncStatusRaw(requestParameters: ReplaceNamespacedRemoteSyncStatusRequest): Promise<runtime.ApiResponse<DevTsuzuModokiV1alpha1RemoteSync>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedRemoteSyncStatus.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedRemoteSyncStatus.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling replaceNamespacedRemoteSyncStatus.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.pretty !== undefined) {
+            queryParameters['pretty'] = requestParameters.pretty;
+        }
+
+        if (requestParameters.dryRun !== undefined) {
+            queryParameters['dryRun'] = requestParameters.dryRun;
+        }
+
+        if (requestParameters.fieldManager !== undefined) {
+            queryParameters['fieldManager'] = requestParameters.fieldManager;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["authorization"] = this.configuration.apiKey("authorization"); // BearerToken authentication
+        }
+
+        const response = await this.request({
+            path: `/apis/modoki.tsuzu.dev/v1alpha1/namespaces/{namespace}/remotesyncs/{name}/status`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DevTsuzuModokiV1alpha1RemoteSyncToJSON(requestParameters.body),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DevTsuzuModokiV1alpha1RemoteSyncFromJSON(jsonValue));
+    }
+
+    /**
+     * replace status of the specified RemoteSync
+     */
+    async replaceNamespacedRemoteSyncStatus(requestParameters: ReplaceNamespacedRemoteSyncStatusRequest): Promise<DevTsuzuModokiV1alpha1RemoteSync> {
+        const response = await this.replaceNamespacedRemoteSyncStatusRaw(requestParameters);
         return await response.value();
     }
 
